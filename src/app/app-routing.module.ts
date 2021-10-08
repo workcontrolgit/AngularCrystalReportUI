@@ -13,6 +13,9 @@ const routes: Routes = [
   Shell.childRoutes([
     { path: 'income', loadChildren: () => import('./income/income.module').then((m) => m.IncomeModule) },
   ]),
+  Shell.childRoutes([
+    { path: 'saving', loadChildren: () => import('./saving/saving.module').then((m) => m.SavingModule) },
+  ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
