@@ -1,0 +1,30 @@
+{
+  "generator-ngx-rocket": {
+    "version": "10.0.0",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "Scrum and Coke",
+      "target": ["web"],
+      "ui": "bootstrap",
+      "features": ["pwa", "auth", "lazy", "e2e"],
+      "languages": ["en-US"],
+      "tools": ["prettier", "hads"],
+      "utility": [],
+      "deploy": "none",
+      "projectName": "angular-12",
+      "packageManager": "npm",
+      "mobile": [],
+      "desktop": [],
+      "pwa": true,
+      "auth": true,
+      "lazy": true,
+      "e2e": true,
+      "angulartics": false
+    }
+  }
+}
