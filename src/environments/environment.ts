@@ -16,6 +16,7 @@ export const environment = {
   serverUrl: '/api',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US'],
+  reportServer: 'https://localhost:44369'
 };
 
 /*
