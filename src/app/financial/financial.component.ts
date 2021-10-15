@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '@env/environment';
+import {ReportService} from '@app/services/report.service';
+
 
 @Component({
   selector: 'app-financial',
@@ -7,12 +8,13 @@ import { environment } from '@env/environment';
   styleUrls: ['./financial.component.scss'],
 })
 export class FinancialComponent implements OnInit {
-  reportServer: string | null = environment.reportServer;
+  pdfSource: any;
+  constructor(private reportService: ReportService) {}
 
-  // Report Web API URL.
-  // You may need to change to the server name/port in environment.ts to match with your environment
-  pdfSource = this.reportServer + '/api/Reports/Financial/VarianceAnalysisReport';
-  constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reportService.getFinancial()
+    .subscribe(data => {this.pdfSource = data;
+    });
+  }
 }

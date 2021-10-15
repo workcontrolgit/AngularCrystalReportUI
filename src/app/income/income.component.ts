@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '@env/environment';
+import {ReportService} from '@app/services/report.service';
+
 
 @Component({
   selector: 'app-income',
@@ -7,11 +8,13 @@ import { environment } from '@env/environment';
   styleUrls: ['./income.component.scss'],
 })
 export class IncomeComponent implements OnInit {
-  reportServer: string | null = environment.reportServer;
-  // Report Web API URL.
-  // You may need to change to the server name/port in environment.ts to match with your environment
-  pdfSource = this.reportServer + '/api/Reports/Demonstration/ComparativeIncomeStatement';
-  constructor() {}
+  pdfSource: any;
+  constructor(private reportService: ReportService) {}
 
-  ngOnInit() {}
+
+  ngOnInit() {
+    this.reportService.getIncome()
+    .subscribe(data => {this.pdfSource = data;
+    });
+  }
 }

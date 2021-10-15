@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ReportService} from '@app/services/report.service';
 
-import { environment } from '@env/environment';
 
 
 @Component({
@@ -10,12 +10,13 @@ import { environment } from '@env/environment';
 })
 export class SavingComponent implements OnInit {
 
-  reportServer: string | null = environment.reportServer;
+  pdfSource: any;
+  constructor(private reportService: ReportService) {}
 
-  // Report Web API URL.
-  // You may need to change to the server name/port in environment.ts to match with your environment
-  pdfSource = this.reportServer + '/api/Reports/VersatileandPrecise/FortifyFinancialAllinOneRetirementSavings';
-  constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.reportService.getSaving()
+    .subscribe(data => {this.pdfSource = data;
+    });
+  }
 }
